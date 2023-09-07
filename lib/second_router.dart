@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'info.dart';
 
 class SecondRouter extends StatelessWidget {
-  final int index;
-  const SecondRouter ({super.key, required this.index});
+  //final int index;
+  // final String name;
+  // final int age;
+  final Users user;
+
+  const SecondRouter ({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +21,7 @@ class SecondRouter extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text('Tên: ${listUsers[index].name}\nTuổi: ${listUsers[index].age}',
+              Text('Tên: ${user.name}\nTuổi: ${user.age}',
                   style: const TextStyle(fontSize: 22)),
             ],
           ),

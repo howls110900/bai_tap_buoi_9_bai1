@@ -2,6 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:untitled1/info.dart';
 import 'package:untitled1/second_router.dart';
 
+List<Users> listUsers = [
+  Users ('Chi', 20),
+  Users ('Tân', 23),
+  Users ('Hiếu', 23),
+  Users ('Tú', 23),
+  Users ('Tuấn', 29),
+  Users ('Chi', 20),
+  Users ('Tài', 24),
+  Users ('Hùng', 45),
+  Users ('Tấn', 66),
+  Users ('Tuấn', 67),
+  Users ('Hiếu', 23),
+  Users ('Tú', 23),
+  Users ('Tuấn', 29),
+  Users ('Chi', 20),
+  Users ('Tài', 24),
+  Users ('Hùng', 45),
+];
+
+
 class FirstRouter extends StatelessWidget {
   const FirstRouter({super.key});
 
@@ -14,14 +34,14 @@ class FirstRouter extends StatelessWidget {
       ),
       body: Container(
         child: ListView.builder(
-            itemCount: itemCount(listUsers),
-            itemBuilder: (BuildContext context, int index) {
+            itemCount: listUsers.length,
+            itemBuilder: (context, int index) {
               return GestureDetector(
                 onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => SecondRouter(index: index)));
+                          builder: (context) => SecondRouter(user: listUsers[index],)));
                 },
                 child: Container(
                   margin: const EdgeInsets.only(left: 30, top: 30 , right: 30),
@@ -35,7 +55,7 @@ class FirstRouter extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        listUsers[index].name,
+                        listUsers[index].getName(),
                         style: const TextStyle(fontSize: 20),
                       )
                     ],
